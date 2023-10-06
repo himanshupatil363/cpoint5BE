@@ -16,6 +16,18 @@ npm install
 ```
 npm start
 ```
-  Server will start at `http://localhost:3001`
-
+  Server will start at `http://localhost:8001`
+Two endpoints are
+```
+Type- GET
+URL- http://localhost:3001/products
+```
+To get list of products in the inventory
+```
+Type- POST
+URL- http://localhost:3001/products/add
+BodyType- FormData
+Payload- name, price, description, quantity, category, image
+```
+each key in FORMDATA is mandatory
 
