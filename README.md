@@ -16,6 +16,6 @@ npm install
 ```
 npm start
 ```
-  Server will start at `http://localhost:8001`
+  Server will start at `http://localhost:3001`
 
 
