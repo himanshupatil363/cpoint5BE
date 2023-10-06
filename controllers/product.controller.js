@@ -18,7 +18,7 @@ const addProduct = async (req, res) => {
       if (err) {
         return res.status(400).json({ message: "File upload error" });
       }
-      const { name, price, description, quantity, category, image } = req.body;
+      const { name, price, description, quantity, category } = req.body;
       if (
         !name ||
         !price ||
