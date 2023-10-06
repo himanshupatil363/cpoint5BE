@@ -16,10 +16,19 @@ const addProduct = async (req, res) => {
   try {
     upload.single("image")(req, res, async (err) => {
       if (err) {
-        console.log(err);
         return res.status(400).json({ message: "File upload error" });
       }
-      const { name, price, description, quantity, category } = req.body;
+      const { name, price, description, quantity, category, image } = req.body;
+      if (
+        !name ||
+        !price ||
+        !description ||
+        !quantity ||
+        !category ||
+        !req?.file?.filename
+      ) {
+        return res.status(400).json({ message: "Please send all fields" });
+      }
       const product = new Product({
         name,
         price,

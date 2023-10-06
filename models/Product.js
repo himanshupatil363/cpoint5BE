@@ -18,9 +18,10 @@ const productSchema = new Schema(
       type: Number,
       default: 0,
       min: [0, "Quantity cannot be negative."],
+      required: [true, "Product name is required."],
     },
-    category: String,
-    image: String,
+    category: { type: String, required: [true, "Category is required."] },
+    image: { type: String, required: [true, "Image is required."] },
   },
   {
     timestamps: true,
