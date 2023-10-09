@@ -19,6 +19,7 @@ const addProduct = async (req, res) => {
         return res.status(400).json({ message: "File upload error" });
       }
       const { name, price, description, quantity, category } = req.body;
+      console.log({ name, price, description, quantity, category });
       if (
         !name ||
         !price ||
@@ -48,7 +49,7 @@ const addProduct = async (req, res) => {
 
 const getProducts = async (req, res) => {
   try {
-    const products = await Product.find();
+    const products = await Product.find().populate("category");
     res.status(200).json(products);
   } catch (error) {
     console.error(error);

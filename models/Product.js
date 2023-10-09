@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+const Categories = require("./Categories");
 // Define the product schema
 const productSchema = new Schema(
   {
@@ -20,7 +20,8 @@ const productSchema = new Schema(
       min: [0, "Quantity cannot be negative."],
       required: [true, "Product name is required."],
     },
-    category: { type: String, required: [true, "Category is required."] },
+
+    category: { type: Schema.Types.ObjectId, ref: "Category" },
     image: { type: String, required: [true, "Image is required."] },
   },
   {
